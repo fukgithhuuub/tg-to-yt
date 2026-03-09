@@ -23,7 +23,7 @@ def get_authenticated_service():
     )
 
     if not credentials or not credentials.valid:
-        if credentials and credentials.expired and credentials.refresh_token:
+        if credentials and credentials.refresh_token:
             credentials.refresh(Request())
         else:
             raise Exception("Credentials not valid and cannot be refreshed.")
